@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import './App.css'
+import LoginScreen from './components/LoginScreen'
 
-function App() {
+export default function App() {
+  const [username, setUsername] = useState(null)
+
   return (
-    <div>
-      Welcome to Vynk
+    <div className='min-h-screen bg-bg-base font-sans text-slate-200 antialiased'>
+      <LoginScreen onJoin={setUsername} />
     </div>
   )
 }
-
-export default App
