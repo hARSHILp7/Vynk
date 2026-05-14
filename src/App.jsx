@@ -1,17 +1,6 @@
 import { useState } from 'react'
 import LoginScreen from './components/LoginScreen'
-import { useStompClient } from './hooks/useStompClient'
-
-function ChatTest({ username }) {
-  const { connected, messages } = useStompClient(username)
-
-  return (
-    <div className='p-6 text-white'>
-      <p>Status: {connected ? '🟢 Connected' : '🔴 Connecting...'}</p>
-      <p>Messages: {messages.length}</p>
-    </div>
-  )
-}
+import ChatRoom from './components/ChatRoom'
 
 export default function App() {
   const [username, setUsername] = useState(null)
@@ -21,7 +10,7 @@ export default function App() {
       {!username ? (
         <LoginScreen onJoin={setUsername} />
       ) : (
-        <ChatTest username={username} />
+        <ChatRoom username={username} />
       )}
     </div>
   )
