@@ -1,5 +1,6 @@
 import { useStompClient } from "../hooks/useStompClient";
 import OnlineUsers from "./OnlineUsers";
+import MessageList from "./MessageList";
 
 export default function ChatRoom({ username }) {
     const {
@@ -80,9 +81,11 @@ export default function ChatRoom({ username }) {
                 </div>
                 
                 {/* Message Placeholder */}
-                <div className="flex-1 flex items-center justify-center text-slate-600 text-sm">
-                    Message feed coming in Issue#6
-                </div>
+                <MessageList
+                    messages={messages}
+                    currentUser={username}
+                    typingUsers={typingUsers.filter((u) => u !== username)}
+                />
                 
                 {/* Input Placeholder */}
                 <div className="px-6 py-4 border-t border-border bg-bg-surface text-slate-600 text-sm">
